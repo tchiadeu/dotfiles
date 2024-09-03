@@ -28,10 +28,6 @@ unalias lt # we need `lt` for https://github.com/localtunnel/localtunnel
 export PATH="${HOME}/.rbenv/bin:${PATH}" # Needed for Linux/WSL
 type -a rbenv > /dev/null && eval "$(rbenv init -)"
 
-# Load pyenv (to manage your Python versions)
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-type -a pyenv > /dev/null && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init - 2> /dev/null)" && RPROMPT+='[🐍 $(pyenv version-name)]'
-
 # Load nvm (to manage your node versions)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -75,10 +71,6 @@ export LC_ALL=en_US.UTF-8
 export BUNDLER_EDITOR=nvim
 export EDITOR=nvim
 
-# Set ipdb as the default Python debugger
-export PYTHONBREAKPOINT=ipdb.set_trace
-sudo /etc/init.d/postgresql start
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -89,3 +81,8 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+# To change the user & the email saved for git
+# git config --global user.email "email"
+# git config --global user.name "full_name"
+
