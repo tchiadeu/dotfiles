@@ -1,9 +1,8 @@
-# Get External IP / Internet Speed
-alias myip="curl https://ipinfo.io/json" # or /ip for plain-text ip
-alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
-
-# Quickly serve the current directory as HTTP
-alias serve='ruby -run -e httpd . -p 8000' # Or python -m SimpleHTTPServer :)
+alias serve='ruby -run -e httpd . -p 8000'
 
 alias lg='lazygit'
-alias zellij='~/.config/zellij/./zellij options --layout-dir ~/.config/zellij/layout'
+
+alias launch='~/.config/zellij/./zellij options --layout-dir ~/.config/zellij/layout'
+alias zellij='~/.config/zellij/./zellij'
+
+alias notify='powershell.exe -ExecutionPolicy Bypass -File ~/.config/notify/notify.ps1'
