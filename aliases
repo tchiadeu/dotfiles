@@ -9,3 +9,7 @@ alias launch='~/.config/zellij/./zellij attach'
 alias notify='powershell.exe -ExecutionPolicy Bypass -File ~/.config/notify/notify.ps1'
 
 alias start-pg='sudo service postgresql start'
+
+alias doc='~/.config/doc_url/doc.sh'
+
+alias localhost='explorer.exe "http://localhost:3000/"'
