@@ -10,7 +10,6 @@ ZSH=$HOME/.oh-my-zsh
 # You can change the theme with another one from https://github.com/robbyrussell/oh-my-zsh/wiki/themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Useful oh-my-zsh plugins for Le Wagon bootcamps
 plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search ssh-agent web-search)
 
 # (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
@@ -73,6 +72,11 @@ export EDITOR=nvim
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# (windows-only) Launch Script to minimize all windows except bash
+if ! powershell.exe "Get-Process | Where-Object { \$_.Name -eq 'AutoHotkey64' }" | grep -q "AutoHotkey64"; then
+  powershell.exe -Command "Start-Process 'C:\Users\kevin\OneDrive\Documents\AutoHotkey\minimize.ahk'"
+fi
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
