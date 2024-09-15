@@ -1,4 +1,3 @@
 --database=postgresql
 --css=tailwind
---skip-test
 --template=https://raw.githubusercontent.com/tchiadeu/template/main/rails/rails_new.rb
