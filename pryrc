@@ -7,6 +7,7 @@ end
 
 if defined?(Rails)
   short_env_options = {
+    'test' => 'test',
     'development' => 'dev',
     'production' => 'prod',
     'staging' => 'stage'
