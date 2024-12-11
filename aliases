@@ -1,15 +1,5 @@
 alias serve='ruby -run -e httpd . -p 8000'
-
+alias myip="curl https://ipinfo.io/json" # or /ip for plain-text ip
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 alias lg='lazygit'
-
-alias zellij='~/.config/zellij/./zellij'
-alias session='~/.config/zellij/./zellij options --layout-dir ~/.config/zellij/layout'
-alias launch='~/.config/zellij/./zellij attach'
-
-alias notify='powershell.exe -ExecutionPolicy Bypass -File ~/.config/notify/notify.ps1'
-
-alias start-pg='sudo service postgresql start'
-
 alias doc='~/.config/doc_url/doc.sh'
-
-alias localhost='explorer.exe "http://localhost:3000/"'

@@ -5,12 +5,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# General theme
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 ZSH=$HOME/.oh-my-zsh
 
 # You can change the theme with another one from https://github.com/robbyrussell/oh-my-zsh/wiki/themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search ssh-agent web-search)
+plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting zsh-autosuggestions history-substring-search web-search)
 
 # (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
@@ -23,9 +24,14 @@ source "${ZSH}/oh-my-zsh.sh"
 unalias rm # No interactive rm by default (brought by plugins/common-aliases)
 unalias lt # we need `lt` for https://github.com/localtunnel/localtunnel
 
+
 # Load rbenv if installed (to manage your Ruby versions)
 export PATH="${HOME}/.rbenv/bin:${PATH}" # Needed for Linux/WSL
 type -a rbenv > /dev/null && eval "$(rbenv init -)"
+
+# Load pyenv (to manage your Python versions)
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+type -a pyenv > /dev/null && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init - 2> /dev/null)" && RPROMPT+='[🐍 $(pyenv version-name)]'
 
 # Load nvm (to manage your node versions)
 export NVM_DIR="$HOME/.nvm"
@@ -70,23 +76,15 @@ export LC_ALL=en_US.UTF-8
 export BUNDLER_EDITOR=nvim
 export EDITOR=nvim
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Set ipdb as the default Python debugger
+export PYTHONBREAKPOINT=ipdb.set_trace
 
-# (windows-only) Launch Script to minimize all windows except bash
-if ! powershell.exe "Get-Process | Where-Object { \$_.Name -eq 'AutoHotkey64' }" | grep -q "AutoHotkey64"; then
-  powershell.exe -Command "Start-Process 'C:\Users\kevin\OneDrive\Documents\AutoHotkey\minimize.ahk'"
-fi
-
-export PATH="$PATH:/opt/nvim-linux64/bin"
-
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+# Setup for fzf
+eval "$(fzf --zsh)"
 
 # To change the user & the email saved for git
 # git config --global user.email "email"
 # git config --global user.name "full_name"
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
