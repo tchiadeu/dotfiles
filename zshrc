@@ -76,3 +76,5 @@ eval "$(fzf --zsh)"
 # git config --global user.name "full_name"
 
 eval "$(starship init zsh)"
+
+eval $(thefuck --alias)
