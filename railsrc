@@ -1,2 +1,4 @@
+-T
+--database=postgresql
 --css=tailwind
 --template=https://raw.githubusercontent.com/tchiadeu/template/main/rails/rails_new.rb
