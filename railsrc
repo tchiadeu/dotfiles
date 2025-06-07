@@ -1,4 +1,5 @@
 -T
 --database=postgresql
 --css=tailwind
+--skip-javascript
 --template=https://raw.githubusercontent.com/tchiadeu/template/main/rails/rails_new.rb
