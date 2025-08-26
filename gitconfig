@@ -49,13 +49,21 @@
   autocorrect = 1
 
 [push]
-  default = simple
+  default = current
+	autoSetupRemote = true
 
 [branch "main"]
   mergeoptions = --no-edit
 
+[branch]
+  autoSetupMerge = true # setup the tracking branch automatically
+	autoSetupRebase = remote # setup branches to rebase on their tracking branch
+
 [pull]
   rebase = false
+
+[rebase]
+  autoStash = true
 
 [init]
   defaultBranch = main
